@@ -18,8 +18,7 @@ class TwitterClient(object):
 			print("Error: Authentication Failed") 
 
 	def clean_tweet(self, tweet): 
-		return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t]) 
-									|(\w+:\/\/\S+)", " ", tweet).split()) 
+		return ' '.join(re.sub("(@[A-Za-z0-9]+)|([^0-9A-Za-z \t]|(\w+:\/\/\S+)", " ", tweet).split()) 
 
 	def get_tweet_sentiment(self, tweet): 
 		analysis = TextBlob(self.clean_tweet(tweet))
